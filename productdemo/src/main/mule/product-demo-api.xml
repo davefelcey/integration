@@ -125,8 +125,6 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\products\(productId):product-demo-api-config">
-		<logger level="INFO" doc:name="Logger" doc:id="4b041778-cd88-4fec-9371-3713e1326dd5" message="Current product id is #[attributes.uriParams.productId]"/>
-		<flow-ref doc:name="product-demo-apiSub_Flow" doc:id="0023f803-bdb9-499e-be6d-d8dd9bd68390" name="product-demo-apiSub_Flow"/>
 		<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" doc:id="f56ec584-abd5-4b2c-b46f-556c532d8916">
             <ee:variables>
                 <ee:set-variable variableName="productId"><![CDATA[attributes.uriParams.productId]]></ee:set-variable>
@@ -166,8 +164,8 @@ output application/json
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="4b041778-cd88-4fec-9371-3713e1326dd5" message="Current product id is #[attributes.uriParams.productId]" />
     </flow>
 	<sub-flow name="product-demo-apiSub_Flow" doc:id="e9348138-b23b-49f5-8040-f48817a8ad6c" >
-		<logger level="INFO" doc:name="Logger" doc:id="f642e33d-36f3-4e67-b28c-de8fcb1a0646" message="In sub flow"/>
 	</sub-flow>
 </mule>
